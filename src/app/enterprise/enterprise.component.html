@@ -6,7 +6,7 @@
     <table class="enterprise-info">
       <tr>
         <td>
-          <h3>{{enterprise.name}}</h3>
+          <a [routerLink]="['/enterprise', enterprise.id]"><h3>{{enterprise.name}}</h3></a>
         </td>
       </tr>
     </table>

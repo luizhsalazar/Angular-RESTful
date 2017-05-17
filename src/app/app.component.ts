@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 <header class="container">
   <h1>{{heading}}</h1>
 </header>
-<my-enterprises></my-enterprises>
+<router-outlet></router-outlet>
 `,
   styleUrls: ['./app.component.css']
 })
