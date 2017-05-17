@@ -2,6 +2,10 @@
   Details about enteprise with id # {{ enterpriseId }}
 </p>
 
+<ul>
+    <li>{{ enterprise | json }}</li>
+</ul>
+
 <a [routerLink]="['/enterprises']">
     <p>Back</p>
 </a>

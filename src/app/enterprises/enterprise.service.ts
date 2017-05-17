@@ -7,10 +7,21 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class EnterpriseService {
 
-  constructor(private http: Http) { }
+    private url: string = "http://jsonplaceholder.typicode.com/users";
 
-  getEnterprises() {
-    return this.http.get('assets/enterprises.json')
-          .map(response => <Enterprise[]>response.json().data);
-  }
+    constructor(private http: Http) { }
+
+    getEnterprises() {
+        return this.http.get('assets/enterprises.json')
+              .map(response => <Enterprise[]>response.json().data);
+    }
+
+    getEnterprise(id) {
+        return this.http.get(this.getIdUrl(id))
+          .map(response => response.json());
+    }
+
+    private getIdUrl(id) {
+        return this.url + "/" + id;
+    }
 }

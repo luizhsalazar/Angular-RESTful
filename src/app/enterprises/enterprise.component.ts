@@ -8,45 +8,44 @@ import { EnterpriseService } from './enterprise.service';
   styleUrls:['./enterprise.component.css']
 })
 export class EnterprisesComponent {
-  heading = "Enterprise Angular App";
-  cash = 10000;
-  enterprises: Enterprise[];
+    heading = "Enterprise Angular App";
+    cash = 10000;
+    enterprises: Enterprise[];
 
-  constructor(private enterpriseService: EnterpriseService) { }
+    constructor(private enterpriseService: EnterpriseService) { }
 
-  ngOnInit() {
-    this.enterpriseService.getEnterprises()
-        .subscribe(data => this.enterprises = data);
-  }
+    ngOnInit() {
+        this.enterpriseService.getEnterprises()
+            .subscribe(data => this.enterprises = data);
+    }
 
-  totalCost() {
-    let sum = 0;
-    // if (this.enterprises) {
-    //   for (let enterprise of this.enterprises) {
-    //     if (enterprise.isRacing) sum += enterprise.entryFee;
-    //   }
-    // }
-    return sum;
-  }
+    totalCost() {
+        let sum = 0;
+        // if (this.enterprises) {
+        //   for (let enterprise of this.enterprises) {
+        //     if (enterprise.isRacing) sum += enterprise.entryFee;
+        //   }
+        // }
+        return sum;
+    }
 
-  castDate(date) {
-    return new Date(date);
-  }
+    castDate(date) {
+        return new Date(date);
+    }
 
-  cashLeft() {
-    return this.cash - this.totalCost();
-  }
+    cashLeft() {
+        return this.cash - this.totalCost();
+    }
 
-  enterEnterprise(enterprise) {
-    // if (this.cashLeft() > enterprise.entryFee) {
-    //   enterprise.isRacing = true;
-    // } else {
-    //   alert("You don't have enough cash");
-    // }
-  }
+    enterEnterprise(enterprise) {
+        // if (this.cashLeft() > enterprise.entryFee) {
+        //   enterprise.isRacing = true;
+        // } else {
+        //   alert("You don't have enough cash");
+        // }
+    }
 
-  cancelEnterprise(enterprise) {
-    enterprise.isRacing = false;
-  }
-
+    cancelEnterprise(enterprise) {
+        enterprise.isRacing = false;
+    }
 }
