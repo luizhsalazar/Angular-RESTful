@@ -2,23 +2,11 @@
 <h2>Money for racing: <input type="text" class="cash" [(ngModel)]="cash"></h2>
 <h2>Cash left to enter enterprises: <span>{{cashLeft() | currency:'USD':true}}</span> </h2>
 
-<section class="card" *ngFor="let enterprise of enterprises" [class.racing]="enterprise.isRacing" >
-  <div class="panel-body">
-    <div class="photo">
-      <img [src]="enterprise.image">
-    </div>
-    <table class="enterprise-info">
-      <tr>
-        <td>
-          <h3>{{enterprise.name}}</h3>
-        </td>
-      </tr>
-    </table>
-  </div>
-</section>
+<!-- "enterprise" is binding to other component "Enterprises" -->
+<app-enterprise *ngFor="let enterprise of enterprises" [enterprise]="enterprise"></app-enterprise>
 
 <div class="price-total">
   <h3>Total cost:</h3>
-  <p>{{totalCost() | currency:'USD':true}}</p>
+  <p>{{ totalCost() | currency:'USD':true }}</p>
 </div>
 </main>
