@@ -1,4 +1,3 @@
-import { ENTERPRISES } from './mocks';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Enterprise } from './enterprise';
@@ -8,6 +7,7 @@ import 'rxjs/add/operator/map';
 export class EnterpriseService {
 
     private url: string = "http://jsonplaceholder.typicode.com/users";
+    private urlContact: string = "http://localhost:59396/api/contacts";
 
     constructor(private http: Http) { }
 
@@ -18,7 +18,8 @@ export class EnterpriseService {
 
     getEnterprise(id) {
         return this.http.get(this.getIdUrl(id))
-          .map(response => response.json());
+          .map(response => response.json())
+        ;
     }
 
     private getIdUrl(id) {

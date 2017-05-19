@@ -12,20 +12,15 @@ export class EnterprisesComponent {
     cash = 10000;
     enterprises: Enterprise[];
 
-    constructor(private enterpriseService: EnterpriseService) { }
+    constructor(private _enterpriseService: EnterpriseService) { }
 
     ngOnInit() {
-        this.enterpriseService.getEnterprises()
+        this._enterpriseService.getEnterprises()
             .subscribe(data => this.enterprises = data);
     }
 
     totalCost() {
         let sum = 0;
-        // if (this.enterprises) {
-        //   for (let enterprise of this.enterprises) {
-        //     if (enterprise.isRacing) sum += enterprise.entryFee;
-        //   }
-        // }
         return sum;
     }
 
@@ -35,17 +30,5 @@ export class EnterprisesComponent {
 
     cashLeft() {
         return this.cash - this.totalCost();
-    }
-
-    enterEnterprise(enterprise) {
-        // if (this.cashLeft() > enterprise.entryFee) {
-        //   enterprise.isRacing = true;
-        // } else {
-        //   alert("You don't have enough cash");
-        // }
-    }
-
-    cancelEnterprise(enterprise) {
-        enterprise.isRacing = false;
     }
 }

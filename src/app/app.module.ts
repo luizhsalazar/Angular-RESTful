@@ -9,13 +9,16 @@ import { EnterprisesComponent } from './enterprises/enterprise.component';
 import { EnterpriseService } from './enterprises/enterprise.service';
 import { EnterpriseComponent } from './enterprise/enterprise.component';
 import { EnterpriseDetailComponent } from './enterprise-detail/enterprise-detail.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { ContactsService } from './contacts/contacts.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     EnterprisesComponent,
     EnterpriseComponent,
-    EnterpriseDetailComponent
+    EnterpriseDetailComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,
@@ -24,10 +27,11 @@ import { EnterpriseDetailComponent } from './enterprise-detail/enterprise-detail
     RouterModule.forRoot([
         { path: '', redirectTo: 'enterprises', pathMatch: 'full' },
         { path: 'enterprises', component: EnterprisesComponent },
-        { path: 'enterprise/:id', component: EnterpriseDetailComponent }
+        { path: 'enterprise/:id', component: EnterpriseDetailComponent },
+        { path: 'contacts', component: ContactsComponent }
     ])
   ],
-  providers: [ EnterpriseService ],
+  providers: [ EnterpriseService, ContactsService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
