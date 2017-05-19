@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { AlertModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import { EnterprisesComponent } from './enterprises/enterprise.component';
@@ -24,6 +25,7 @@ import { ContactsService } from './contacts/contacts.service';
     BrowserModule,
     FormsModule,
     HttpModule,
+    AlertModule.forRoot(),
     RouterModule.forRoot([
         { path: '', redirectTo: 'enterprises', pathMatch: 'full' },
         { path: 'enterprises', component: EnterprisesComponent },
