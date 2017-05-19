@@ -8,7 +8,7 @@ import { EnterpriseService } from './enterprise.service';
   styleUrls:['./enterprise.component.css']
 })
 export class EnterprisesComponent {
-    heading = "Enterprise Angular App";
+    heading = "CREA-SC Angular App";
     cash = 10000;
     enterprises: Enterprise[];
 

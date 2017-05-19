@@ -19,5 +19,4 @@ export class ContactsComponent implements OnInit {
                 data => this.contacts = data
             );
     }
-
 }

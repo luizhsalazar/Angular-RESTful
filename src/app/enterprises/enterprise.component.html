@@ -1,12 +1,5 @@
 <div class="container">
-    <!-- <h2>Money for racing: <input type="text" class="cash" [(ngModel)]="cash"></h2>
-    <h2>Cash left to enter enterprises: <span>{{cashLeft() | currency:'USD':true}}</span> </h2> -->
-
     <!-- "enterprise" is binding to other component "Enterprises" -->
     <app-enterprise *ngFor="let enterprise of enterprises" [enterprise]="enterprise"></app-enterprise>
 
-    <!-- <div class="price-total">
-      <h3>Total cost:</h3>
-      <p>{{ totalCost() | currency:'USD':true }}</p>
-    </div> -->
 </div>

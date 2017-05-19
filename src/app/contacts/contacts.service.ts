@@ -17,6 +17,6 @@ export class ContactsService {
 
     getContact(id) {
       return this.http.get(this.contactsUrl + '/' + id)
-                 .map(response => response.json);
+                 .map(response => response.json());
     }
 }
