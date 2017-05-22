@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Contact } from './contacts';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class ContactsService {
 
     private contactsUrl: string = "http://localhost:59396/api/contacts";
+    private header = new Headers({ 'content-type': 'application/json', 'accept': 'application/json'});
 
     constructor(private http: Http) { }
 
@@ -21,12 +25,12 @@ export class ContactsService {
     }
 
     addContact(contact){
-      return this.http.post(this.contactsUrl, JSON.stringify(contact))
+      return this.http.post(this.contactsUrl, contact, this.header)
         .map(response => response.json());
     }
 
     updateContact(contact){
-      return this.http.put(this.contactsUrl + '/' + contact.id, JSON.stringify(contact))
+      return this.http.put(this.contactsUrl + '/' + contact.id, contact)
         .map(response => response.json());
     }
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactsService } from '../contacts/contacts.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contact-form',
@@ -7,13 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _contactsService: ContactsService, private _router: Router) { }
 
   ngOnInit() {
   }
 
   onSubmit(form) {
-      console.log(form);
+      var result, data = form.value;
+
+      if (data.id) {
+          result = this._contactsService.updateContact(data);
+      } else {
+          result = this._contactsService.addContact(data);
+      }
+
+      result.subscribe(
+          data => this._router.navigate(['contacts'])
+      );
   }
 
   isValidField(field) {

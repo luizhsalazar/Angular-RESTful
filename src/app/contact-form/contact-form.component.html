@@ -15,8 +15,12 @@
         <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Sobrenome" ngModel>
       </div>
       <div class="form-group">
-        <label for="job">Cargo</label>
-        <input type="text" class="form-control" name="job" id="job" placeholder="Ex: gerente, analista, desenvolvedor." ngModel>
+        <label for="mobilePhone">Telefone</label>
+        <input type="text" class="form-control" name="mobilePhone" id="mobilePhone" placeholder="Telefone" ngModel ui-br-phone-number>
+      </div>
+      <div class="form-group">
+        <label for="jobTitle">Cargo</label>
+        <input type="text" class="form-control" name="jobTitle" id="jobTitle" placeholder="Ex: gerente, analista, desenvolvedor." ngModel>
       </div>
       <div class="form-group" [class.has-error]="!email.valid && email.touched" [class.has-feedback]="!email.valid && email.touched">
         <label for="email">E-mail</label>
