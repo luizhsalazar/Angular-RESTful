@@ -1,3 +1,20 @@
-<div class="container">
-    <p>{{ contact | json }}</p>
+<div *ngIf="contact" class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4>{{ contact.firstName }}</h4>
+                        <small>{{ contact.jobTitle }}</small><br />
+                        <p>
+                            <i class="glyphicon glyphicon-envelope"></i>{{ contact.email }}<br />
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
