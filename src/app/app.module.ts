@@ -38,7 +38,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
         { path: 'enterprise/:id', component: EnterpriseDetailComponent },
         { path: 'contacts', component: ContactsComponent },
         { path: 'contact/:id', component: ContactDetailComponent },
-        { path: 'contacts/new', component: ContactFormComponent }
+        { path: 'contacts/new', component: ContactFormComponent },
+        { path: 'contacts/edit/:id', component: ContactFormComponent }
     ])
   ],
   providers: [ EnterpriseService, ContactsService ],

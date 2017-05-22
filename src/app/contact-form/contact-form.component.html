@@ -3,37 +3,42 @@
       <button class="btn btn-default" type="submit">Voltar</button>
   </a>
   <br />
-  
+
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <div class="form-group" [ngClass]="validate(firstName)">
       <label for="firstName">Nome</label>
-      <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Nome" ngModel required #firstName="ngModel">
+      <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Nome"  ngModel required #firstName="ngModel" [value]="contact?.firstName">
       <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
       <span id="inputError2Status" class="sr-only">(error)</span>
       <small *ngIf="!firstName.valid && firstName.touched">
-          Nome é obrigatório
+          Campo obrigatório.
       </small>
     </div>
 
     <div class="form-group">
       <label for="lastName">Sobrenome</label>
-      <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Sobrenome" ngModel>
+      <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Sobrenome" ngModel [value]="contact?.lastName">
     </div>
-    <div class="form-group">
+    <div class="form-group" [ngClass]="validate(mobilePhone)">
       <label for="mobilePhone">Telefone</label>
-      <input type="text" class="form-control" name="mobilePhone" id="mobilePhone" placeholder="Telefone" ngModel ui-br-phone-number>
+      <input type="text" class="form-control" name="mobilePhone" id="mobilePhone" placeholder="Telefone" ngModel required #mobilePhone="ngModel" [value]="contact?.mobilePhone">
+      <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+      <span id="inputError2Status" class="sr-only">(error)</span>
+      <small *ngIf="!mobilePhone.valid && mobilePhone.touched">
+          Campo obrigatório.
+      </small>
     </div>
     <div class="form-group">
       <label for="jobTitle">Cargo</label>
-      <input type="text" class="form-control" name="jobTitle" id="jobTitle" placeholder="Ex: gerente, analista, desenvolvedor." ngModel>
+      <input type="text" class="form-control" name="jobTitle" id="jobTitle" placeholder="Ex: gerente, analista, desenvolvedor." ngModel [value]="contact?.jobTitle">
     </div>
     <div class="form-group" [class.has-error]="!email.valid && email.touched" [class.has-feedback]="!email.valid && email.touched">
       <label for="email">E-mail</label>
-      <input type="email" class="form-control" name="email" id="email" placeholder="Email" ngModel required email #email="ngModel">
+      <input type="email" class="form-control" name="email" id="email" placeholder="Email" ngModel required email #email="ngModel" [value]="contact?.email">
       <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
       <span id="inputError2Status" class="sr-only">(error)</span>
       <small *ngIf="!email.valid && email.touched">
-          E-mail é obrigatório
+          Campo obrigatório.
       </small>
     </div>
 

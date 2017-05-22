@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ContactsService } from '../contacts/contacts.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Contact } from '../contacts/contacts';
 
 @Component({
   selector: 'app-contact-form',
@@ -9,9 +10,23 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ContactFormComponent implements OnInit {
 
-  constructor(private _contactsService: ContactsService, private _router: Router) { }
+  private contact;
+  private contactId;
+
+  constructor(private _contactsService: ContactsService, private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit() {
+    this._route.params.forEach(
+      (params: Params) => this.contactId = params['id']
+    );
+
+    if (this.contactId) {
+      this._contactsService.getContact(this.contactId)
+      .subscribe(data => { this.contact = data,
+        console.log(this.contact)
+      });
+    }
+
   }
 
   onSubmit(form) {
