@@ -14,6 +14,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { ContactsService } from './contacts/contacts.service';
 import { ContactComponent } from './contact/contact.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
     EnterpriseDetailComponent,
     ContactsComponent,
     ContactComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
         { path: 'enterprises', component: EnterprisesComponent },
         { path: 'enterprise/:id', component: EnterpriseDetailComponent },
         { path: 'contacts', component: ContactsComponent },
-        { path: 'contact/:id', component: ContactDetailComponent }
+        { path: 'contact/:id', component: ContactDetailComponent },
+        { path: 'contacts/new', component: ContactFormComponent }
     ])
   ],
   providers: [ EnterpriseService, ContactsService ],

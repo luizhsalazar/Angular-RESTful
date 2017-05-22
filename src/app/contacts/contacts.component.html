@@ -1,9 +1,12 @@
 <div class="container">
-
+    <a [routerLink]="['/contacts/new']" class="new-contact">
+        <button class="btn btn-primary " type="submit">Criar novo contato</button>
+    </a>
+    <br />
     <p>
       Você possui {{ contacts?.length }} contatos cadastrados
     </p>
-    
+
     <!-- "contact" is binding to other component "Contacts" -->
     <app-contact *ngFor="let contact of contacts" [contact]="contact"></app-contact>
 

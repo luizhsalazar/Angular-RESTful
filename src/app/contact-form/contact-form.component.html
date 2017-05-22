@@ -1,0 +1,33 @@
+<div class="container">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="form-group" [ngClass]="validate(firstName)">
+        <label for="firstName">Nome</label>
+        <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Nome" ngModel required #firstName="ngModel">
+        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+        <span id="inputError2Status" class="sr-only">(error)</span>
+        <small *ngIf="!firstName.valid && firstName.touched">
+            Nome é obrigatório
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Sobrenome</label>
+        <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Sobrenome" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="job">Cargo</label>
+        <input type="text" class="form-control" name="job" id="job" placeholder="Ex: gerente, analista, desenvolvedor." ngModel>
+      </div>
+      <div class="form-group" [class.has-error]="!email.valid && email.touched" [class.has-feedback]="!email.valid && email.touched">
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email" ngModel required email #email="ngModel">
+        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+        <span id="inputError2Status" class="sr-only">(error)</span>
+        <small *ngIf="!email.valid && email.touched">
+            E-mail é obrigatório
+        </small>
+      </div>
+
+      <button type="submit" [disabled]="!form.valid" class="btn btn-default">Submit</button>
+    </form>
+</div>

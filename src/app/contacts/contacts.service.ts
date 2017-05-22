@@ -19,4 +19,19 @@ export class ContactsService {
       return this.http.get(this.contactsUrl + '/' + id)
                  .map(response => response.json());
     }
+
+    addContact(contact){
+      return this.http.post(this.contactsUrl, JSON.stringify(contact))
+        .map(response => response.json());
+    }
+
+    updateContact(contact){
+      return this.http.put(this.contactsUrl + '/' + contact.id, JSON.stringify(contact))
+        .map(response => response.json());
+    }
+
+    deleteContact(id){
+      return this.http.delete(this.contactsUrl + '/' + id)
+        .map(response => response.json());
+    }
 }
