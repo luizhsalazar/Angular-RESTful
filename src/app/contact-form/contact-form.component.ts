@@ -32,14 +32,17 @@ export class ContactFormComponent implements OnInit {
   onSubmit(form) {
       var result, data = form.value;
 
-      if (data.id) {
-          result = this._contactsService.updateContact(data);
+      if (this.contactId) {
+          result = this._contactsService.updateContact(this.contactId, data);
       } else {
           result = this._contactsService.addContact(data);
       }
 
       result.subscribe(
-          data => this._router.navigate(['contacts'])
+          data => {
+            alert(data.message);
+            this._router.navigate(['contacts']); 
+          }
       );
   }
 

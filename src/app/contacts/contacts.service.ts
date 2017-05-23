@@ -29,8 +29,8 @@ export class ContactsService {
         .map(response => response.json());
     }
 
-    updateContact(contact){
-      return this.http.put(this.contactsUrl + '/' + contact.id, contact)
+    updateContact(contactId, contact){
+      return this.http.put(this.contactsUrl + '/' + contactId, contact)
         .map(response => response.json());
     }
 
