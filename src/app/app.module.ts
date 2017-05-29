@@ -15,6 +15,7 @@ import { ContactsService } from './contacts/contacts.service';
 import { ContactComponent } from './contact/contact.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     ContactsComponent,
     ContactComponent,
     ContactDetailComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
